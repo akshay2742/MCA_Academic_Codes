@@ -28,7 +28,8 @@ i=0
 count=0
 while(($i<$length))
 do
-if [[ "${arr1[$i]}" -eq "${arr2[$i]}" ]] ; then
+if [ ${arr1[$i]} = ${arr2[$i]} ]
+then
 count=0
 else
 count=1
