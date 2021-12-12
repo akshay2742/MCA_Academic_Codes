@@ -1,14 +1,18 @@
 # !/bin/sh
 
-read str1
+count=0
 
-length=${#str1}
+arguments=$(echo $#)
 
-str2=$(echo $str1 | rev)
+i=1
+while(($i<=$arguments))
+do
+	str=$(echo ${!i} | rev)
+	if [ ${!i} = $str ]
+	then
+		count=`expr $count + 1`
+	fi
+	i=`expr $i + 1`
+done
 
-if [ $str1 = $str2 ]
-then
-echo "String is a palindrome"
-else
-echo "String is not a palindrome"
-fi
+echo "Number of palindromes present in the arguments are: $count"
